@@ -572,7 +572,7 @@ case "kinder2":
     window.location.href = "games/zombies.html";
     break;
 case "madness":
-    window.location.href = "games/Madness.html";
+    window.location.href = "games/madness.html";
     break;
 case "melon":
     window.location.href = "games/Melon Playground.html";
