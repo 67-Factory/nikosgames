@@ -319,11 +319,12 @@ document.onkeydown = function(event) {
 }
     const mainContainer = document.getElementById('main');
     if (mainContainer) {
+        if (document.getElementById('game-count')) {   
         const gameElements = mainContainer.querySelectorAll('.game');
         const gameCount = gameElements.length;
         const countDisplay = document.getElementById('game-count');
         countDisplay.textContent = `Amount of Games: ${gameCount}`;
-
+        }
     } else {
         console.error("Main container element not found!");
     }
