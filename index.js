@@ -348,7 +348,7 @@ document.onkeydown = function(event) {
         countDisplay.textContent = `Amount of Games: ${gameCount}`;
         }
     } else {
-        console.error("Main container element not found!");
+        
     }
 function changeicontitle() {
     localStorage.setItem('iconchange', 'true');
@@ -713,6 +713,47 @@ case "yume":
         }
     });
 }
+
+
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBHmkPkVZ6S06XC2lpYE7ZYhIp2FJW54FA",
+            authDomain: "idka-f7ad4.firebaseapp.com",
+            databaseURL: "https://idka-f7ad4-default-rtdb.firebaseio.com",
+            projectId: "idka-f7ad4",
+            storageBucket: "idka-f7ad4.firebasestorage.app",
+            messagingSenderId: "499430715576",
+            appId: "1:499430715576:web:ddad665f368a0f3b55c44d"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        // Generate unique user ID
+        const userId = 'user_' + Math.random().toString(36).substr(2, 9);
+        const userRef = db.ref('activeUsers/' + userId);
+        const activeUsersRef = db.ref('activeUsers');
+
+        // Mark this user as online
+        userRef.set({
+            online: true,
+            timestamp: Date.now()
+        });
+
+        // Remove user when they leave
+        userRef.onDisconnect().remove();
+
+        // Listen for active user count changes
+        activeUsersRef.on('value', (snapshot) => {
+            const count = snapshot.numChildren();
+            document.getElementById('activeUsers').textContent = count;
+        });
+
+        // Keep user active (update every 30 seconds)
+        setInterval(() => {
+            userRef.update({ timestamp: Date.now() });
+        }, 10000);
 window.addEventListener('load', () => {
     loadingscreenremove();
 });
