@@ -1,3 +1,25 @@
+function updateProgress(percent) {
+        document.getElementById('percentText').textContent = Math.floor(percent) + '%';
+    }
+ let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        
+        if (progress >= 90 && document.readyState !== 'complete') {
+            progress = 90;
+        }
+        
+        if (document.readyState === 'complete') {
+            progress = 100;
+            clearInterval(interval);
+        }
+        
+        updateProgress(Math.min(progress, 100));
+    }, 100);
+    window.addEventListener('load', () => {
+        clearInterval(interval);
+        updateProgress(100);
+    });
 function loadingscreenremove() {
     const loadingDiv = document.getElementById('load');
     if (loadingDiv) {
