@@ -674,6 +674,9 @@ case "smash":
 case "tattle":
     window.location.href = "games/Tattletail.html";
     break;
+case "terraria":
+    window.location.href = "games/terraria/index.html";
+    break;
 case "thatsnot":
     window.location.href = "games/That's Not My Neighbor.html";
     break;
