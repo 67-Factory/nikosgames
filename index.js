@@ -39,6 +39,34 @@ function maybebadwifi() {
     }, 7000);
 }
 maybebadwifi();
+
+fetch("g.json")
+  .then(res => res.json())
+  .then(data => {
+    const main = document.getElementById("main");
+
+    data.games.forEach(game => {
+      const div = document.createElement("div");
+      div.className = "game";
+      div.id = game.id;
+
+      div.innerHTML = `
+        <button type="button" class="gamebutton">
+          <img src="${game.image}" alt="${game.alt}" style="width:150px; height:150px;">
+          <h2>${game.title}</h2>
+        </button>
+      `;
+
+      main.appendChild(div);
+      gamecount();
+      if (document.getElementById('game-count').textContent == "Amount of Games: 108") {
+        customapp();
+      }
+    });
+  })
+  .catch(err => console.error("Error loading games.json:", err));
+
+
 function randomtext() {
     const randomtexts = [
         "hi niko",
@@ -65,7 +93,11 @@ function randomtext() {
 "bro the no/existence/n of you and me is cool",
 "catygarden is so cool",
 "bro im in vsc rn and it keeps suggesting stay hydrated",
-"suggest games plz",]
+"suggest games plz",
+"https://youtu.be/rV38vCS-IaU?si=CJ9prR1qV4Rhq7PX",
+"CAN THIS STUPID CHARGER STOP BEING WEAK",
+"xmas time guys",
+"no hi"]
     const randomIndex = Math.floor(Math.random() * randomtexts.length);
     const randomtextElement = document.getElementById('randomtext');
     if (randomtextElement) {
@@ -288,15 +320,17 @@ window.addEventListener('load', function() {
 })();
     }
 });
+function customapp() {
 if (localStorage.getItem('custom')) {
     const customGame = JSON.parse(localStorage.getItem('custom'));
     const customGameDiv = document.getElementById('customapp');
-    const titleForLoad = document.getElementById('titleforload');
+    const titleForLoad = customGameDiv.querySelector('h2');
     if (customGameDiv && titleForLoad) {
         customGameDiv.querySelector('img').src = customGame.imglink || 'images/funnyicon.png';
         customGameDiv.querySelector('img').alt = customGame.title;
         titleForLoad.textContent = customGame.title;
     }
+}
 }
 function removesnow() {
     var question = confirm("are you disabling snow or enabling it? (ok = disable, cancel = enable)");
@@ -339,6 +373,7 @@ document.onkeydown = function(event) {
         }  
     }
 }
+function gamecount() {
     const mainContainer = document.getElementById('main');
     if (mainContainer) {
         if (document.getElementById('game-count')) {   
@@ -350,6 +385,7 @@ document.onkeydown = function(event) {
     } else {
         
     }
+}
 function changeicontitle() {
     localStorage.setItem('iconchange', 'true');
     window.location.reload();
@@ -476,6 +512,12 @@ case "buildnow":
     case "bitlife":
     window.location.href = "games/BitLife.html";
     break;
+    case "bottle":
+    window.location.href = "games/Bottle Jump 3D.html";
+    break;
+    case "binding":
+    window.location.href = "games/Binding of Issac_ Wrath of the Lamb.html";
+    break;
 case "celeste":
     window.location.href = "games/Celeste.html";
     break;
@@ -512,6 +554,9 @@ case "doom2":
     case "deltarune":
     window.location.href = "games/deltarune.html";
     break;
+    case "drifthunters":
+    window.location.href = "games/Drift Hunters.html";
+    break;
 case "endo":
     window.location.href = "games/Endoparasitic.html";
     break;
@@ -530,8 +575,26 @@ case "fnaf3":
 case "fnaf4":
     window.location.href = "games/Five Nights at Freddy's 4.html";
     break;
+case "fnafu":
+    window.location.href = "games/Five Nights at Freddy's Ultimate Custom Night.html";
+    break;
+    case "fnafp":
+    window.location.href = "games/Five Nights at Freddy's  Pizza Simulator.html";
+    break;
+    case "fnafs":
+    window.location.href = "games/Five Nights at Freddy's  Sister Location.html";
+    break;
 case "fnf":
     window.location.href = "games/Friday Night Funkin.html";
+    break;
+    case "fallout":
+    window.location.href = "games/Fallout.html";
+    break;
+    case "flappy":
+    window.location.href = "games/Flappy Dunk.html";
+    break;
+    case "google":
+    window.location.href = "games/Google Feud.html";
     break;
 case "gachalife":
     window.location.href = "games/life.html";
@@ -602,6 +665,12 @@ case "melon":
 case "mc":
     window.location.href = "games/minecraft.html";
     break;
+    case "mad2":
+    window.location.href = "games/Madalin Stunt Cars 2.html";
+    break;
+    case "mad3":
+    window.location.href = "games/Madalin Stunt Cars 3.html";
+    break;
 case "oneshot":
     window.location.href = "games/oneshot.html";
     break;
@@ -616,6 +685,9 @@ case "people":
     break;
 case "pizza":
     window.location.href = "games/Pizza Tower.html";
+    break;
+    case "pizzas":
+    window.location.href = "games/PTS.html";
     break;
 case "plants":
     window.location.href = "games/Plants vs Zombies.html";
@@ -647,8 +719,14 @@ case "slender":
 case "slope":
     window.location.href = "games/Slope.html";
     break;
+    case "slope2":
+    window.location.href = "games/Slope 2.html";
+    break;
 case "solar":
     window.location.href = "games/Solar Smash.html";
+    break;
+    case "slowroads":
+    window.location.href = "games/Slowroads.html";
     break;
 case "sonic":
     window.location.href = "games/Sonic Mania.html";
@@ -671,6 +749,9 @@ case "super":
 case "smash":
     window.location.href = "games/smashkarts.html";
     break;
+    case "sand":
+    window.location.href = "games/Sandtris.html";
+    break;
 case "tattle":
     window.location.href = "games/Tattletail.html";
     break;
@@ -689,6 +770,12 @@ case "man":
 case "tunnel":
     window.location.href = "games/Tunnel Rush.html";
     break;
+    case "time":
+    window.location.href = "games/Time Shooter 1.html";
+    break;
+    case "trivia":
+    window.location.href = "games/Trivia Crack.html";
+    break;
 case "ultrakill":
     window.location.href = "games/ULTRAKILL.html";
     break;
@@ -697,6 +784,15 @@ case "undertaleyellow":
     break;
     case "undertale":
     window.location.href = "games/undertale/index.html";
+    break;
+    case "vex":
+    window.location.href = "games/Vex 1.html";
+    break;
+    case "vex2":
+    window.location.href = "games/Vex 2.html";
+    break;
+    case "vex3":
+    window.location.href = "games/Vex 3 XMAS.html";
     break;
 case "webf":
     window.location.href = "games/WebFishing.html";
