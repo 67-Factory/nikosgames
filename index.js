@@ -800,6 +800,9 @@ case "webf":
 case "yume":
     window.location.href = "games/Yume Nikki.html";
     break;
+    case "tung":
+    window.location.href = "games/tung.html";
+    break;
                 // Add more cases here for other game divs you add:
                 // case "game2":
                 //     window.location.href = "games/game2.html";

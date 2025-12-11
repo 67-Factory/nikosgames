@@ -112,6 +112,7 @@
     { "id": "tattle", "title": "Tattletail", "image": "images/gameicons/tattle.png", "alt": "tattle" },
         { "id": "terraria", "title": "Terraria", "image": "images/gameicons/terraria.png", "alt": "terraria" },
     { "id": "thatsnot", "title": "That's Not My Neighbor", "image": "images/gameicons/thatsnot.png", "alt": "thatsnot" },
+    { "id": "tung", "title": "Tung Tung Tung Sahur", "image": "images/gameicons/tung.png", "alt": "tung" },
     { "id": "side", "title": "The Deadseat", "image": "images/gameicons/side.png", "alt": "side" },
     { "id": "man", "title": "The Man In The Window", "image": "images/gameicons/man.png", "alt": "man" },
     { "id": "tunnel", "title": "Tunnel Rush", "image": "images/gameicons/tunnel.png", "alt": "tunnel" },
