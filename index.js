@@ -40,32 +40,35 @@ function maybebadwifi() {
 }
 maybebadwifi();
 
-fetch("g.json")
-  .then(res => res.json())
-  .then(data => {
-    const main = document.getElementById("main");
+if ((window.location.pathname.endsWith("g.html")) || (window.location.pathname === "/")) {
+    fetch("g.json")
+      .then(res => res.json())
+      .then(data => {
+        const main = document.getElementById("main");
 
-    data.games.forEach(game => {
-      const div = document.createElement("div");
-      div.className = "game";
-      div.id = game.id;
+        data.games.forEach(game => {
+          const div = document.createElement("div");
+          div.className = "game";
+          div.id = game.id;
 
-      div.innerHTML = `
-        <button type="button" class="gamebutton">
-          <img src="${game.image}" alt="${game.alt}" style="width:150px; height:150px;">
-          <h2>${game.title}</h2>
-        </button>
-      `;
+          div.innerHTML = `
+            <button type="button" class="gamebutton">
+              <img src="${game.image}" alt="${game.alt}" style="width:150px; height:150px;">
+              <h2>${game.title}</h2>
+            </button>
+          `;
 
-      main.appendChild(div);
-      gamecount();
-      if (document.getElementById('game-count').textContent == "Amount of Games: 108") {
-        customapp();
-      }
-    });
-  })
-  .catch(err => console.error("Error loading games.json:", err));
-
+          main.appendChild(div);
+          gamecount();
+          if (document.getElementById('game-count').textContent == "Amount of Games: 126") {
+            customapp();
+          }
+        });
+      })
+      .catch(err => console.error("Error loading games.json:", err));
+} else {
+console.log("no load g.json")
+}
 
 function randomtext() {
     const randomtexts = [

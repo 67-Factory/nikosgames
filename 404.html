@@ -1,0 +1,66 @@
+<html>
+    <head>
+          <link rel="stylesheet" href="style.css">
+          <link rel="icon" href="images/funnyicon.png" type="image/png">
+          <title> Niko's Gámes - 404</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+<div class="scroll">
+<div class="mainthing404">
+<h1> 404 </h1>
+<p> the page you are looking doesnt exist!</p>
+<p> try a different one or click one of the sidebar icons. </p>
+<p> if this a game error please report a bug in the discord server. </p>
+<p> check console for more details </p>
+</div>
+<div class="sidebar">
+  <div class="uhblock2">
+    <div class="buttons">
+    <button type="button" onclick="homepage()" class="buttonthing">
+      <img src="images/funnyicon.png" alt="home" style="width: 85px; height: 85px;">
+    </button>
+    
+      <button type="button" onclick="g()" class="buttonthing">
+        <img src="images/gameicon.png" alt="games" style="width: 65px; height: 65px;">
+      </button>
+      <button type="button" onclick="p()" class="buttonthing">
+        <img src="images/proxy.png" alt="proxy" style="width: 65px; height: 65px;">
+      </button>
+      <button type="button" onclick="l()" class="buttonthing">
+        <img src="images/link.png" alt="link dispenser" style="width: 65px; height: 65px;">
+      </button>
+      <button type="button" onclick="comingsoon()" class="buttonthing">
+        <img id="randomicon" src="images/randomuhicons/tiktok.png" alt="apps" style="width: 65px; height: 65px;">
+      </button>
+      <button type="button" onclick="i()" class="buttonthing">
+        <img src="images/info.png" alt="info" style="width: 65px; height: 65px;">
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="datetime">
+<h1><span id="datetime"></span></h1>
+</div>
+<div class="credit">
+<p> 🟢 <span id="activeUsers">0</span> users online </p>
+</div>
+    <div class="load" id="load">
+      <img src="images/load/niko-oneshot.gif" alt="load">
+      <h1 class="loading-text"> loading.. </h1>
+      <h1 id="percentText"> </h1>
+      <p> made by arandomiperson on discord </p>
+      <p id="notloading"> </p>
+      </div>
+        <div class="background" id="thing">
+       <div class="stuff">
+
+       </div>
+        </div>
+        <canvas id="snowCanvas"></canvas>
+         <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script async type="text/javascript" src="index.js"></script>
+    </body>
+</html>
