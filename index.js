@@ -854,7 +854,7 @@ activeUsersRef.on('value', function(snapshot) {
 
 setInterval(() => {
     userRef.update({ timestamp: Date.now() });
-}, 5000);
+}, 100000);
 window.addEventListener('load', () => {
     loadingscreenremove();
 });
